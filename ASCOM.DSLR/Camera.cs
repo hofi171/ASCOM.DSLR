@@ -307,7 +307,7 @@ namespace ASCOM.DSLR
                     camera.ImageFormat = ImageFormat.JPEG;
                     break;
             }
-
+            camera.SetManualMode = settings.SetManualFocus;
             camera.UseExternalShutter = settings.UseExternalShutter;
             camera.ExternalShutterPort = settings.ExternalShutterPortName;
 

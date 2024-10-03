@@ -63,6 +63,8 @@ namespace ASCOM.DSLR
 
             Settings.maxADUOverride = chkMAXADU.Checked;
 
+            Settings.SetManualFocus = chkFocusModeManual.Checked;
+
             if ((DebugLogLevels)cbTraceLevel.SelectedItem == DebugLogLevels.Trace)
                 Logger.SetLogLevelTrace();
 
@@ -154,6 +156,8 @@ namespace ASCOM.DSLR
             txtMAXADU.Text = Convert.ToString(Settings.maxADU);
 
             chkMAXADU.Checked = Settings.maxADUOverride;
+
+            chkFocusModeManual.Checked = Settings.SetManualFocus;
 
             tbBackyardEosPort.Text = Settings.BackyardEosPort.ToString();
 

@@ -45,6 +45,7 @@ namespace ASCOM.DSLR.Classes
         public List<short> SimpleISOList;
 
 
+        public bool SetManualMode { get; set; }
         public bool IsLiveViewMode { get; set; }
 
         protected string RenameFile(string downloadedFilePath, double duration, DateTime startTime)

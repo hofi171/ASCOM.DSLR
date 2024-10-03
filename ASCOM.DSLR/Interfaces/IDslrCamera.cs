@@ -60,6 +60,7 @@ namespace ASCOM.DSLR.Interfaces
         CameraModel CameraModel { get; }      
 
         bool SaveFile { get; set; }
+        bool SetManualMode { get; set; }
     }
 
     public class LiveViewImageReadyEventArgs : EventArgs

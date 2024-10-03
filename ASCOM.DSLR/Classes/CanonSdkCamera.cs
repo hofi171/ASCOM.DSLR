@@ -25,7 +25,7 @@ namespace ASCOM.DSLR.Classes
             ErrorHandler.NonSevereErrorHappened += ErrorHandler_NonSevereErrorHappened;
         }
         CanonAPI APIHandler;
-
+        
         EOSDigital.API.Camera _mainCamera;
         EOSDigital.API.Camera MainCamera
         {
@@ -239,6 +239,7 @@ namespace ASCOM.DSLR.Classes
 
         public ConnectionMethod IntegrationApi => ConnectionMethod.CanonSdk;
 
+
         public event EventHandler<ImageReadyEventArgs> ImageReady;
         public event EventHandler<ExposureFailedEventArgs> ExposureFailed;
         public event EventHandler<LiveViewImageReadyEventArgs> LiveViewImageReady;
@@ -265,6 +266,13 @@ namespace ASCOM.DSLR.Classes
 
             CameraValue selectedIsoValue = GetSelectedIsoValue();
             MainCamera.SetSetting(PropertyID.ISO, selectedIsoValue.IntValue);
+
+            if (SetManualMode)
+            {
+                MainCamera.SetSetting(PropertyID.AFMode, (int)AFMode.Manual);
+            }else             {
+                MainCamera.SetSetting(PropertyID.AFMode, (int)AFMode.AIFocus);
+            }
         }
 
         private CameraValue GetSelectedIsoValue()

@@ -23,6 +23,7 @@ namespace ASCOM.DSLR.Classes
             CameraModelsHistory = new List<CameraModel>();
             LogLevel = DebugLogLevels.Error;
             maxADU = 14605;
+            SetManualFocus = true;
         }
 
         public bool TraceLog { get; set; }
@@ -60,5 +61,7 @@ namespace ASCOM.DSLR.Classes
         
         public DebugLogLevels LogLevel { get; set; }
 
-    }
+        public bool SetManualFocus { get; set; }
+
+}
 }
